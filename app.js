@@ -3,9 +3,8 @@
 const spinner = toggle => {
     document.getElementById('spinner').style.display = toggle;
 }
-
-// fetch data from openapi.programming-hero.com
 spinner("none");
+// fetch data from openapi.programming-hero.com
 const loadPhone = async () => {
     const searchText = document.getElementById('searchText').value;
     const notFound = document.getElementById('not-found');
@@ -50,7 +49,7 @@ const searchPhone = phones => {
     const notFound = document.getElementById('not-found');
     notFound.innerText = "";
     container.textContent = "";
-    // console.log(phones.data)
+    // console.log(phones)
     if (phones.status == false) {
         const h3 = document.createElement('h3');
         h3.innerText = "Search result not found";
@@ -83,9 +82,9 @@ const searchPhone = phones => {
 
 const LoadDetails = async (id) => {
 
-    console.log(id);
+    // console.log(id);
     const url = `https://openapi.programming-hero.com/api/phone/${id}`
-    console.log(url)
+    // console.log(url)
     try {
         const res = await fetch(url);
         const data = await res.json();
@@ -109,8 +108,50 @@ const exploreMore = async (phoneDetails) => {
                 <img src="${phoneDetails.data.image}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Release Date: ${phoneDetails.data.releaseDate}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">Release Date: ${phoneDetails.data.releaseDate ? phoneDetails.data.releaseDate : "Release Date Not Found"}</p>
+                    <table class="table table-bordered border-primary">
+                        <thead>
+                            <tr>
+                                <th scope="col">Main Features</th>
+                                <th scope="col">Others</th>
+                                <th scope="col">Sensors</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><span class="fw-bold">Chipset:</span> ${phoneDetails.data.mainFeatures.chipSet}</td>
+                                <td><span class="fw-bold">WLAN:</span> ${phoneDetails.data.others?.WLAN ? phoneDetails.data.others.WLAN : "No Information"}</td>
+                                <td>Otto</td>
+                                
+                            </tr>
+                            <tr>
+                                <td scope="row"><span class="fw-bold">Display Size:</span>  ${phoneDetails.data.mainFeatures.displaySize}</td>
+                                <td><span class="fw-bold">Bluetooth:</span> ${phoneDetails.data.others?.Bluetooth ? phoneDetails.data.others?.Bluetooth : "No Information"}</td>
+                                <td>Thornton</td>
+                               
+                            </tr>
+                            <tr>
+                                <td scope="row"><span class="fw-bold">Storage:</span>  ${phoneDetails.data.mainFeatures.storage}</td>
+                                <td><span class="fw-bold">GPS:</span> ${phoneDetails.data.others?.GPS ? phoneDetails.data.others?.GPS : "No Information"}</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><span class="fw-bold">Memory</span>  ${phoneDetails.data.mainFeatures.memory}</td>
+                                <td><span class="fw-bold">USB:</span> ${phoneDetails.data.others?.USB ? phoneDetails.data.others?.USB : "No Information"}</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><span class="fw-bold">Memory</span>  ${phoneDetails.data.mainFeatures.memory}</td>
+                                <td><span class="fw-bold">NFC:</span> ${phoneDetails.data.others?.NFC ? phoneDetails.data.others?.NFC : "No Information"}</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><span class="fw-bold">Memory</span>  ${phoneDetails.data.mainFeatures.memory}</td>
+                                <td><span class="fw-bold">Radio:</span> ${phoneDetails.data.others?.Radio ? phoneDetails.data.others?.Radio : "No Information"}</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
     `
