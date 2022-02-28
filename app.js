@@ -96,11 +96,11 @@ const LoadDetails = async (id) => {
 }
 
 const exploreMore = async (phoneDetails) => {
-    console.log(phoneDetails)
+    console.log(phoneDetails.data.mainFeatures.sensors);
     const detailInfo = document.getElementById('details');
     detailInfo.textContent = "";
     const div = document.createElement('div');
-
+    const span = document.createElement('span');
     div.classList.add('card');
     div.classList.add('mx-auto');
     div.innerHTML = `
@@ -121,39 +121,39 @@ const exploreMore = async (phoneDetails) => {
                             <tr>
                                 <td scope="row"><span class="fw-bold">Chipset:</span> ${phoneDetails.data.mainFeatures.chipSet}</td>
                                 <td><span class="fw-bold">WLAN:</span> ${phoneDetails.data.others?.WLAN ? phoneDetails.data.others.WLAN : "No Information"}</td>
-                                <td>Otto</td>
+                                <td>${phoneDetails.data.mainFeatures.sensors[0]}</td>
                                 
                             </tr>
                             <tr>
                                 <td scope="row"><span class="fw-bold">Display Size:</span>  ${phoneDetails.data.mainFeatures.displaySize}</td>
                                 <td><span class="fw-bold">Bluetooth:</span> ${phoneDetails.data.others?.Bluetooth ? phoneDetails.data.others?.Bluetooth : "No Information"}</td>
-                                <td>Thornton</td>
+                                <td>${phoneDetails.data.mainFeatures.sensors[1]}</td>
                                
                             </tr>
                             <tr>
                                 <td scope="row"><span class="fw-bold">Storage:</span>  ${phoneDetails.data.mainFeatures.storage}</td>
                                 <td><span class="fw-bold">GPS:</span> ${phoneDetails.data.others?.GPS ? phoneDetails.data.others?.GPS : "No Information"}</td>
-                                <td>@twitter</td>
+                                <td>${phoneDetails.data.mainFeatures.sensors[2]}</td>
                             </tr>
                             <tr>
                                 <td scope="row"><span class="fw-bold">Memory</span>  ${phoneDetails.data.mainFeatures.memory}</td>
                                 <td><span class="fw-bold">USB:</span> ${phoneDetails.data.others?.USB ? phoneDetails.data.others?.USB : "No Information"}</td>
-                                <td>@twitter</td>
+                                <td>${phoneDetails.data.mainFeatures.sensors[3]}</td>
                             </tr>
                             <tr>
-                                <td scope="row"><span class="fw-bold">Memory</span>  ${phoneDetails.data.mainFeatures.memory}</td>
+                                <th scope="row">Sensor</th>
                                 <td><span class="fw-bold">NFC:</span> ${phoneDetails.data.others?.NFC ? phoneDetails.data.others?.NFC : "No Information"}</td>
-                                <td>@twitter</td>
+                                <td>${phoneDetails.data.mainFeatures.sensors[4]}</td>
                             </tr>
                             <tr>
-                                <td scope="row"><span class="fw-bold">Memory</span>  ${phoneDetails.data.mainFeatures.memory}</td>
+                                <td scope="row"></td>
                                 <td><span class="fw-bold">Radio:</span> ${phoneDetails.data.others?.Radio ? phoneDetails.data.others?.Radio : "No Information"}</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                                <td>${phoneDetails.data.mainFeatures.sensors[5]}</td>
+                            </tr >
+                        </tbody >
+                    </table >
+                </div >
+            </div >
     `
     detailInfo.appendChild(div);
 
