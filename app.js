@@ -6,6 +6,25 @@ const spinner = toggle => {
 }
 spinner("none");
 
+// Display Error Message
+
+const errorMessage = (displayText) => {
+    const notFound = document.getElementById('not-found');
+    const h3 = document.createElement('h3');
+    h3.classList.add('text-center');
+    h3.classList.add('mt-4');
+    if (displayText === "no-entry") {
+        h3.innerText = "Please Enter Phone Name";
+    }
+    else if (displayText === "no-result") {
+        h3.innerText = "Search result not found";
+    }
+    else {
+        h3.innerText = displayText;
+    }
+    notFound.appendChild(h3);
+}
+
 // fetch data from openapi.programming-hero.com
 
 const loadPhone = async () => {
@@ -13,11 +32,7 @@ const loadPhone = async () => {
     const notFound = document.getElementById('not-found');
     notFound.textContent = "";
     if (searchText == "") {
-        const h3 = document.createElement('h3');
-        h3.innerText = "Please Enter Phone Name";
-        h3.classList.add('text-center');
-        h3.classList.add('mt-4');
-        notFound.appendChild(h3);
+        errorMessage("no-entry");
     }
     else {
         spinner("block");
@@ -28,22 +43,11 @@ const loadPhone = async () => {
             searchPhone(data);
         }
         catch (error) {
-            displayErrorMessage(error)
+            spinner("none");
+            const errorText = error.toString();
+            errorMessage(errorText);
         }
     }
-
-}
-
-// If api not working properly
-
-const displayErrorMessage = (error) => {
-    spinner("none");
-    const notFound = document.getElementById('not-found');
-    const h3 = document.createElement('h3');
-    h3.innerText = error;
-    h3.classList.add('text-center');
-    h3.classList.add('mt-4');
-    notFound.appendChild(h3);
 
 }
 
@@ -57,12 +61,8 @@ const searchPhone = phones => {
     notFound.textContent = "";
     container.textContent = "";
     if (phones.status == false) {
-        const h3 = document.createElement('h3');
-        h3.innerText = "Search result not found";
-        h3.classList.add('text-center');
-        h3.classList.add('mt-4');
-        notFound.appendChild(h3);
         spinner("none");
+        errorMessage('no-result');
     }
     else {
         spinner("none");
