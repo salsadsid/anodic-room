@@ -11,7 +11,7 @@ spinner("none");
 const loadPhone = async () => {
     const searchText = document.getElementById('searchText').value;
     const notFound = document.getElementById('not-found');
-    notFound.textContent = ""
+    notFound.textContent = "";
     if (searchText == "") {
         const h3 = document.createElement('h3');
         h3.innerText = "Please Enter Phone Name";
@@ -54,9 +54,8 @@ const searchPhone = phones => {
     const container = document.getElementById('phone-container');
     const notFound = document.getElementById('not-found');
     const twentyPhones = phones.data.slice(0, 20);
-    notFound.innerText = "";
+    notFound.textContent = "";
     container.textContent = "";
-    console.log(phones.data)
     if (phones.status == false) {
         const h3 = document.createElement('h3');
         h3.innerText = "Search result not found";
@@ -67,7 +66,6 @@ const searchPhone = phones => {
     }
     else {
         spinner("none");
-
 
         twentyPhones.forEach(phone => {
             const div = document.createElement('div');
@@ -111,7 +109,7 @@ const LoadDetails = async (id) => {
 // Show Phone Details
 
 const exploreMore = async (phoneDetails) => {
-    console.log(phoneDetails.data.mainFeatures.sensors);
+    // console.log(phoneDetails);
     const detailInfo = document.getElementById('details');
     detailInfo.textContent = "";
     const div = document.createElement('div');
@@ -123,7 +121,7 @@ const exploreMore = async (phoneDetails) => {
       </div>
         <div class="card-body">
             <h5 class="card-title">${phoneDetails.data.name}</h5>
-            <p class="card-text">Release Date: ${phoneDetails.data.releaseDate ? phoneDetails.data.releaseDate : "Release Date Not Found"}</p>
+            <p class="card-text">Release Date: ${phoneDetails.data.releaseDate ? phoneDetails.data.releaseDate : "Not Available"}</p>
             <table class="table table-bordered border-primary">
                 <thead>
                     <tr>
@@ -158,7 +156,7 @@ const exploreMore = async (phoneDetails) => {
                     </tr >
                 </tbody >
             </table>
-        <p><span class="fw-bold">Sensor:</span> ${phoneDetails.data.mainFeatures?.sensors ? phoneDetails.data.mainFeatures?.sensors : "No Information"}</p>
+        <p><span class="fw-bold">Sensor:</span> ${phoneDetails.data.mainFeatures?.sensors.join() ? phoneDetails.data.mainFeatures?.sensors.join(" || ") : "No Information"}</p>
         </div >
     </div >
 `
