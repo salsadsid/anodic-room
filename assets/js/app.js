@@ -30,9 +30,15 @@ const errorMessage = (displayText) => {
 const loadPhone = async () => {
     const searchText = document.getElementById('searchText').value;
     const notFound = document.getElementById('not-found');
+    const container = document.getElementById('phone-container');
+    const detailInfo = document.getElementById('details');
     notFound.textContent = "";
+
+
     if (searchText == "") {
         errorMessage("no-entry");
+        container.textContent = "";
+        detailInfo.textContent = "";
     }
     else {
         spinner("block");
@@ -57,16 +63,18 @@ const searchPhone = phones => {
 
     const container = document.getElementById('phone-container');
     const notFound = document.getElementById('not-found');
+    const detailInfo = document.getElementById('details');
     const twentyPhones = phones.data.slice(0, 20);
     notFound.textContent = "";
     container.textContent = "";
     if (phones.status == false) {
         spinner("none");
+        detailInfo.textContent = "";
         errorMessage('no-result');
     }
     else {
         spinner("none");
-
+        detailInfo.textContent = "";
         twentyPhones.forEach(phone => {
             const div = document.createElement('div');
             div.classList.add('col');
