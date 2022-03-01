@@ -1,10 +1,13 @@
 
+// Spinner 
 
 const spinner = toggle => {
     document.getElementById('spinner').style.display = toggle;
 }
 spinner("none");
+
 // fetch data from openapi.programming-hero.com
+
 const loadPhone = async () => {
     const searchText = document.getElementById('searchText').value;
     const notFound = document.getElementById('not-found');
@@ -30,6 +33,9 @@ const loadPhone = async () => {
     }
 
 }
+
+// If api not working properly
+
 const displayErrorMessage = (error) => {
     spinner("none");
     const notFound = document.getElementById('not-found');
@@ -85,6 +91,8 @@ const searchPhone = phones => {
     }
 }
 
+// load data for Phone Details 
+
 const LoadDetails = async (id) => {
 
     // console.log(id);
@@ -100,16 +108,16 @@ const LoadDetails = async (id) => {
     }
 }
 
+// Show Phone Details
+
 const exploreMore = async (phoneDetails) => {
     console.log(phoneDetails.data.mainFeatures.sensors);
     const detailInfo = document.getElementById('details');
     detailInfo.textContent = "";
     const div = document.createElement('div');
     div.classList.add('mx-auto');
-    div.innerHTML =
-        `
-
-    <div class="card mx-auto col-12 border border-primary border-3">
+    div.innerHTML = `
+    <div class="card mx-auto col-12 border border-primary border-3 shadow">
       <div class="col-lg-4 mx-auto d-flex justify-content-center">
       <img src="${phoneDetails.data.image}" class="card-img-top mt-3">
       </div>
@@ -121,7 +129,6 @@ const exploreMore = async (phoneDetails) => {
                     <tr>
                         <th scope="col">Main Features</th>
                         <th scope="col">Others Features</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -156,5 +163,4 @@ const exploreMore = async (phoneDetails) => {
     </div >
 `
     detailInfo.appendChild(div);
-
 }
