@@ -139,32 +139,32 @@ const exploreMore = async (phoneDetails) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="row"><span class="fw-bold">Chipset:</span> ${phoneDetails.data.mainFeatures.chipSet}</td>
-                        <td><span class="fw-bold">WLAN:</span> ${phoneDetails.data.others?.WLAN ? phoneDetails.data.others.WLAN : "No Information"}</td>
+                        <td scope="row"><span class="fw-bold">Chipset: </span> ${phoneDetails.data.mainFeatures?.chipSet ? phoneDetails.data.mainFeatures?.chipSet : "No Information"}</td>
+                        <td><span class="fw-bold">WLAN: </span> ${phoneDetails.data.others?.WLAN ? phoneDetails.data.others?.WLAN : "No Information"}</td>
                     </tr>
                     <tr>
-                        <td scope="row"><span class="fw-bold">Display Size:</span>  ${phoneDetails.data.mainFeatures.displaySize}</td>
-                        <td><span class="fw-bold">Bluetooth:</span> ${phoneDetails.data.others?.Bluetooth ? phoneDetails.data.others?.Bluetooth : "No Information"}</td>
+                        <td scope="row"><span class="fw-bold">Display Size: </span>  ${phoneDetails.data.mainFeatures?.displaySize ? phoneDetails.data.mainFeatures?.displaySize : "No Information"}</td>
+                        <td><span class="fw-bold">Bluetooth: </span> ${phoneDetails.data.others?.Bluetooth ? phoneDetails.data.others?.Bluetooth : "No Information"}</td>
                     </tr>
                     <tr>
-                        <td scope="row"><span class="fw-bold">Storage:</span>  ${phoneDetails.data.mainFeatures.storage}</td>
-                        <td><span class="fw-bold">GPS:</span> ${phoneDetails.data.others?.GPS ? phoneDetails.data.others?.GPS : "No Information"}</td>
+                        <td scope="row"><span class="fw-bold">Storage: </span>  ${phoneDetails.data.mainFeatures?.storage ? phoneDetails.data.mainFeatures?.storage : "No information"}</td>
+                        <td><span class="fw-bold">GPS: </span> ${phoneDetails.data.others?.GPS ? phoneDetails.data.others?.GPS : "No Information"}</td>
                     </tr>
                     <tr>
-                        <td scope="row"><span class="fw-bold">Memory</span>  ${phoneDetails.data.mainFeatures.memory}</td>
-                        <td><span class="fw-bold">USB:</span> ${phoneDetails.data.others?.USB ? phoneDetails.data.others?.USB : "No Information"}</td>
-                    </tr>
-                    <tr>
-                        <td scope="row"></td>
-                        <td><span class="fw-bold">NFC:</span> ${phoneDetails.data.others?.NFC ? phoneDetails.data.others?.NFC : "No Information"}</td>
+                        <td scope="row"><span class="fw-bold">Memory: </span>  ${phoneDetails.data.mainFeatures?.memory ? phoneDetails.data.mainFeatures?.memory : "No Information"}</td>
+                        <td><span class="fw-bold">USB: </span> ${phoneDetails.data.others?.USB ? phoneDetails.data.others?.USB : "No Information"}</td>
                     </tr>
                     <tr>
                         <td scope="row"></td>
-                        <td><span class="fw-bold">Radio:</span> ${phoneDetails.data.others?.Radio ? phoneDetails.data.others?.Radio : "No Information"}</td>
+                        <td><span class="fw-bold">NFC: </span> ${phoneDetails.data.others?.NFC ? phoneDetails.data.others?.NFC : "No Information"}</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"></td>
+                        <td><span class="fw-bold">Radio: </span> ${phoneDetails.data.others?.Radio ? phoneDetails.data.others?.Radio : "No Information"}</td>
                     </tr >
                 </tbody >
             </table>
-        <p><span class="fw-bold">Sensor:</span> ${phoneDetails.data.mainFeatures?.sensors.join() ? phoneDetails.data.mainFeatures?.sensors.join(" || ") : "No Information"}</p>
+        <p><span class="fw-bold">Sensors: </span> ${phoneDetails.data.mainFeatures?.sensors.join(" || ") ? phoneDetails.data.mainFeatures?.sensors.join(" || ") : "No Information"}</p>
         </div >
     </div >
 `
