@@ -26,7 +26,7 @@
     <div class="container col-lg-6 col-11">
         <div class="input-group mb-3 mx-auto mt-3">
             <input type="text" class="form-control" placeholder="Search Phone" aria-label="Recipient's username"
-                aria-describedby="button-addon2" id="searchText">
+                aria-describedby="button-addon2" id="searchText" onkeydown="if (event.keyCode == 13)loadPhone()">
             <button class="btn btn-outline-primary" type="button" id="button-search"
                 onclick="loadPhone()">Search</button>
         </div>
@@ -38,13 +38,26 @@
 
     </div>
 
-    <!-- Phone Details Card -->
+    <!-- Button trigger modal -->
 
-    <div class="container my-3">
-        <div class="row row-col-12 row-cols-md-8 g-4" id="details">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Phone Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="details">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
         </div>
     </div>
-
     <!-- Spinner -->
 
     <div class="d-flex justify-content-center ">

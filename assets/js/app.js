@@ -42,21 +42,25 @@ const loadPhone = async () => {
     }
     else {
         spinner("block");
-        const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-            searchPhone(data);
-        }
-        catch (error) {
-            spinner("none");
-            const errorText = error.toString();
-            errorMessage(errorText);
-        }
+        fetchPhone(searchText)
     }
 
 }
 
+const fetchPhone = async (searchText) => {
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        searchPhone(data);
+    }
+    catch (error) {
+        spinner("none");
+        const errorText = error.toString();
+        errorMessage(errorText);
+    }
+}
+fetchPhone("samsung");
 // Show results in bootstrap cards
 
 const searchPhone = phones => {
@@ -87,7 +91,9 @@ const searchPhone = phones => {
                         <div class="card-body">
                             <h5 class="card-title">${phone.phone_name}</h5>
                             <p class="card-text">Brand: ${phone.brand}</p>
-                            <button class="btn btn-primary" onclick="LoadDetails('${phone.slug}')">Explore</button>
+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"onclick="LoadDetails('${phone.slug}')"> Explore
+                            </button>
                         </div>
                     </div>
             `
@@ -123,7 +129,7 @@ const exploreMore = async (phoneDetails) => {
     const div = document.createElement('div');
     div.classList.add('mx-auto');
     div.innerHTML = `
-    <div class="card mx-auto col-12 border border-primary border-3 shadow">
+    <div class="card mx-auto col-12 border border-primary border-3 shadow ">
       <div class="col-lg-4 mx-auto d-flex justify-content-center">
       <img src="${phoneDetails.data.image}" class="card-img-top mt-3">
       </div>
@@ -170,3 +176,5 @@ const exploreMore = async (phoneDetails) => {
 `
     detailInfo.appendChild(div);
 }
+
+
