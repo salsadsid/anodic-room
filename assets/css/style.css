@@ -1,3 +1,13 @@
-#searchText{
-    background-color: rgba(173, 216, 230, 0.164);
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Poppins&display=swap');
+
+#searchText {
+    background-color: rgba(173, 216, 230, 0.507);
+}
+
+body {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-size: 72px 72px, 72px 72px, 24px 24px, 24px 24px;
+    background-image: linear-gradient(rgba(0, 0, 0, .05) 2px, transparent 2px), linear-gradient(90deg, rgba(0, 0, 0, .05) 2px, transparent 2px), linear-gradient(rgba(0, 0, 0, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, .05) 1px, transparent 1px);
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }

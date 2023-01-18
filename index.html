@@ -20,17 +20,19 @@
 
     <!-- Header start -->
 
-    <h1 class="text-center mt-5 ">Anodic <span class="text-primary">Room</span></h1>
-    <p class="text-center my-3">The ultimate resource for SmartPhone & Accessories information.</p>
-    <!-- Search Phone -->
-    <div class="container col-lg-6 col-11">
-        <div class="input-group mb-3 mx-auto mt-3">
-            <input type="text" class="form-control" placeholder="Search Phone" aria-label="Recipient's username"
-                aria-describedby="button-addon2" id="searchText" onkeydown="if (event.keyCode == 13)loadPhone()">
-            <button class="btn btn-outline-primary" type="button" id="button-search"
-                onclick="loadPhone()">Search</button>
+    <header>
+        <h1 class="text-center mt-5 fw-bold">Anodic <span class="text-primary">Room</span></h1>
+        <p class="text-center my-3">The ultimate resource for SmartPhone & Accessories information.</p>
+        <!-- Search Phone -->
+        <div class="container col-lg-6 col-11">
+            <div class="input-group mb-3 mx-auto mt-3">
+                <input type="text" class="form-control" placeholder="Search Phone" aria-label="Recipient's username"
+                    aria-describedby="button-addon2" id="searchText" onkeydown="if (event.keyCode == 13)loadPhone()">
+                <button class="btn btn-outline-primary" type="button" id="button-search"
+                    onclick="loadPhone()">Search</button>
+            </div>
         </div>
-    </div>
+    </header>
 
     <!-- If result not found -->
 
@@ -53,7 +55,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
                 </div>
             </div>
         </div>
